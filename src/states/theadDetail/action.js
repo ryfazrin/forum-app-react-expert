@@ -70,5 +70,5 @@ export {
   ActionType,
   receiveThreadDetailActionCreator,
   clearThreadDetailActionCreator,
-  asyncReceiveThreadDetail
+  asyncReceiveThreadDetail,
 };

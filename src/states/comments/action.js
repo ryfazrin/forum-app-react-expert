@@ -2,7 +2,7 @@ import { hideLoading, showLoading } from 'react-redux-loading-bar';
 import api from '../../utils/api';
 
 const ActionType = {
-  ADD_COMMENT: 'ADD_COMMENT'
+  ADD_COMMENT: 'ADD_COMMENT',
 };
 
 function addCommentActionCreator(comment) {
@@ -46,5 +46,5 @@ function asyncAddComment({ threadId, content }) {
 export {
   ActionType,
   addCommentActionCreator,
-  asyncAddComment
+  asyncAddComment,
 };
