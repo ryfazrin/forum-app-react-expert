@@ -56,7 +56,7 @@ function App() {
         <main>
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/talks/:id" element={<DetailPage />} />
+            <Route path="/threads/:id" element={<DetailPage />} />
           </Routes>
         </main>
       </div>
