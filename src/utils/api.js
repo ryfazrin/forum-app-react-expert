@@ -44,14 +44,14 @@ const api = (() => {
     return user;
   }
 
-  async function login({ id, password }) {
+  async function login({ email, password }) {
     const response = await fetch(`${BASE_URL}/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        id,
+        email,
         password,
       }),
     });
@@ -101,8 +101,9 @@ const api = (() => {
     return users;
   }
 
-  async function getAllTalks() {
-    const response = await fetch(`${BASE_URL}/talks`);
+  // GET: All Treads
+  async function getAllThreads() {
+    const response = await fetch(`${BASE_URL}/threads`);
 
     const responseJson = await response.json();
 
@@ -112,13 +113,14 @@ const api = (() => {
       throw new Error(message);
     }
 
-    const { data: { talks } } = responseJson;
+    const { data: { threads } } = responseJson;
 
-    return talks;
+    return threads;
   }
 
-  async function getTalkDetail(id) {
-    const response = await fetch(`${BASE_URL}/talks/${id}`);
+  // GET: Treads Detail
+  async function getThreadDetail(id) {
+    const response = await fetch(`${BASE_URL}/threads/${id}`);
 
     const responseJson = await response.json();
 
@@ -128,20 +130,22 @@ const api = (() => {
       throw new Error(message);
     }
 
-    const { data: { talkDetail } } = responseJson;
+    const { data: { detailThread } } = responseJson;
 
-    return talkDetail;
+    return detailThread;
   }
 
-  async function createTalk({ text, replyTo = '' }) {
-    const response = await _fetchWithAuth(`${BASE_URL}/talks`, {
+  // POST: Create Thread
+  async function createThread({ title, body, category = '' }) {
+    const response = await _fetchWithAuth(`${BASE_URL}/threads`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        text,
-        replyTo,
+        title,
+        body,
+        category
       }),
     });
 
@@ -153,19 +157,20 @@ const api = (() => {
       throw new Error(message);
     }
 
-    const { data: { talk } } = responseJson;
+    const { data: { thread } } = responseJson;
 
-    return talk;
+    return thread;
   }
 
-  async function toggleLikeTalk(id) {
-    const response = await _fetchWithAuth(`${BASE_URL}/talks/likes`, {
+  // POST: Create Comment
+  async function createComment({ threadId, content }) {
+    const response = await _fetchWithAuth(`${BASE_URL}/threads/${threadId}/comments`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        talkId: id,
+        content
       }),
     });
 
@@ -176,6 +181,10 @@ const api = (() => {
     if (status !== 'success') {
       throw new Error(message);
     }
+
+    const { data: { comment } } = responseJson;
+
+    return comment;
   }
 
   return {
@@ -185,10 +194,10 @@ const api = (() => {
     login,
     getOwnProfile,
     getAllUsers,
-    getAllTalks,
-    createTalk,
-    toggleLikeTalk,
-    getTalkDetail,
+    getAllThreads,
+    getThreadDetail,
+    createThread,
+    createComment
   };
 })();
 
