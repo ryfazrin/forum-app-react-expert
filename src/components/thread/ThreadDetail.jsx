@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { postedAt } from '../../utils';
 import CommentsList from '../comment/CommentsList';
+import { CommentItemShape } from '../comment/CommentItem';
 
 function ThreadDetail({
   id, title, body, category, createdAt, owner, comments, authUser,
@@ -61,7 +62,7 @@ ThreadDetail.propTypes = {
   category: PropTypes.string.isRequired,
   createdAt: PropTypes.string.isRequired,
   owner: PropTypes.shape(ownerShape).isRequired,
-  comments: PropTypes.arrayOf(PropTypes.string).isRequired,
+  comments: PropTypes.arrayOf(PropTypes.shape(CommentItemShape)).isRequired,
   authUser: PropTypes.string.isRequired,
 };
 
