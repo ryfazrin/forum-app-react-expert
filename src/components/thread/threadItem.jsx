@@ -28,40 +28,22 @@ function ThreadItem({
         <header>
           <div className="thread-item__user-info">
             <p className="thread-item__user-name">{user.name}</p>
-            {/* <p className="thread-item__user-id">
-              @
-              {user.id}
-            </p> */}
           </div>
           <p className="thread-item__created-at">{postedAt(createdAt)}</p>
         </header>
         <article>
-          <p>{title}</p>
-          <p className="thread-item__text">{body}</p>
+          <h2>{title}</h2>
           <p>
-            Category:
+            Kategori:
             {' '}
             {category}
           </p>
           <p>
-            Comments:
-            {' '}
             {totalComments}
+            {' '}
+            Komentar
           </p>
         </article>
-        {/* {
-          like && (
-            <div className="thread-item__likes">
-              <p>
-                <button type="button" aria-label="like" onClick={onLikeClick}>
-                  { isthreadLiked ? <FaHeart style={{ color: 'red' }} /> : <FaRegHeart />}
-                </button>
-                {' '}
-                {likes.length}
-              </p>
-            </div>
-          )
-        } */}
       </div>
     </div>
   );

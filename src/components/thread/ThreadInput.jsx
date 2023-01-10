@@ -40,6 +40,7 @@ function ThreadInput({ addThread }) {
         /320
       </p>
       <select value={category} onChange={handleCategoryChange}>
+        <option>- Pilih kategori -</option>
         <option value="sport">Sport</option>
         <option value="news">News</option>
         <option value="tech">Tech</option>
