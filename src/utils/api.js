@@ -145,7 +145,7 @@ const api = (() => {
       body: JSON.stringify({
         title,
         body,
-        category
+        category,
       }),
     });
 
@@ -170,7 +170,7 @@ const api = (() => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        content
+        content,
       }),
     });
 
@@ -197,7 +197,7 @@ const api = (() => {
     getAllThreads,
     getThreadDetail,
     createThread,
-    createComment
+    createComment,
   };
 })();
 
