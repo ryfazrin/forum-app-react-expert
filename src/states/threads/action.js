@@ -68,5 +68,5 @@ export {
   ActionType,
   receiveThreadsActionCreator,
   addThreadActionCreator,
-  asyncAddThread
+  asyncAddThread,
 };
