@@ -4,7 +4,7 @@ import CommentItem, { CommentItemShape } from './CommentItem';
 
 function CommentsList({ comments }) {
   return (
-    <div className="comments-list">
+    <div>
       {
         comments.map((comment) => (
           <CommentItem key={comment.id} {...comment} />

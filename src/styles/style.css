@@ -124,7 +124,7 @@ body {
   margin-bottom: 32px;
 }
 
-.thread-item {
+.thread-item, .thread-comment {
   padding: 16px;
   display: flex;
   gap: 10px;
@@ -141,31 +141,31 @@ body {
   background-color: var(--gray-light-color);
 }
 
-.thread-item__user-photo img {
+.thread-item__user-photo img, .thread-comment__user-photo img {
   width: 40px;
   border-radius: 50%;
   vertical-align: middle;
 }
 
-.thread-item__detail {
+.thread-item__detail, .thread-comment__detail {
   flex: 1;
 }
 
-.thread-item__detail header {
+.thread-item__detail header, .thread-comment__detail header {
   display: flex;
   margin-bottom: 4px;
 }
 
-.thread-item__user-info {
+.thread-item__user-info, .thread-comment__user-info {
   flex: 1;
 }
 
-.thread-item__detail .thread-item__created-at {
+.thread-item__detail .thread-item__created-at, .thread-comment__created-at {
   color: var(--gray-dark-color);
   font-size: 15px;
 }
 
-.thread-item__detail .thread-item__user-name {
+.thread-item__detail .thread-item__user-name, .thread-comment__user-name {
   font-size: 15px;
   font-weight: 600;
 }
@@ -175,7 +175,7 @@ body {
   color: var(--gray-dark-color);
 }
 
-.thread-item__detail .thread-item__text {
+.thread-item__detail .thread-item__text, .thread-comment__text {
   font-size: 15px;
 }
 

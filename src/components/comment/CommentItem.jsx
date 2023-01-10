@@ -6,17 +6,22 @@ function CommentItem({
   id, content, createdAt, owner,
 }) {
   return (
-    <>
-      <p>
-        id:
-        {' '}
-        {id}
-      </p>
-      <img src={owner.avatar} alt={owner.name} />
-      <p>{owner.name}</p>
-      <p>{postedAt(createdAt)}</p>
-      <p>{content}</p>
-    </>
+    <div className="thread-comment">
+      <div className="thread-comment__user-photo">
+        <img src={owner.avatar} alt={owner.name} />
+      </div>
+      <div className="thread-comment__detail">
+        <header>
+          <div className="thread-comment__user-info">
+            <p className="thread-comment__user-name">{owner.name}</p>
+          </div>
+          <p className="thread-comment__created-at">{postedAt(createdAt)}</p>
+        </header>
+        <article>
+          <p>{content}</p>
+        </article>
+      </div>
+    </div>
   );
 }
 
