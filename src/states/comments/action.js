@@ -56,20 +56,6 @@ function asyncAddComment({ threadId, content }) {
   };
 }
 
-// function asyncToogleLikeThread(threadId) {
-//   return async (dispatch, getState) => {
-//     const { authUser } = getState();
-//     dispatch(toggleLikethreadActionCreator({ threadId, userId: authUser.id }));
-
-//     try {
-//       await api.toggleLikeThread(threadId);
-//     } catch (error) {
-//       alert(error.message);
-//       dispatch(toggleLikeThreadActionCreator({ threadId, userId: authUser.id }));
-//     }
-//   };
-// }
-
 export {
   ActionType,
   receiveCommentsActionCreator,

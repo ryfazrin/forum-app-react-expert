@@ -7,10 +7,9 @@ import { asyncRegisterUser } from '../states/users/action';
 
 function RegisterPage() {
   const navigate = useNavigate();
-  const dispatch = useDispatch(); // @TODO: get dispatch function from store
+  const dispatch = useDispatch();
 
   const onRegister = ({ name, email, password }) => {
-    // @TODO: dispatch async action to register
     dispatch(asyncRegisterUser({ name, email, password }));
 
     navigate('/');

@@ -10,17 +10,15 @@ function HomePage() {
     threads = [],
     users = [],
     authUser,
-  } = useSelector((states) => states); // @TODO: get threads, users, and authUser state from store
+  } = useSelector((states) => states);
 
-  const dispatch = useDispatch(); // @TODO: get dispatch function from store
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    // @TODO: dispatch async action to populate threads and users data
     dispatch(asyncPopulateUsersAndThreads());
   }, [dispatch]);
 
   const onAddThread = (title, body, category) => {
-    // @TODO: dispatch async action to add thread
     dispatch(asyncAddThread({ title, body, category }));
   };
 

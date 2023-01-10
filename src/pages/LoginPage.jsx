@@ -6,10 +6,9 @@ import LoginInput from '../components/LoginInput';
 import { asyncSetAuthUser } from '../states/authUser/action';
 
 function LoginPage() {
-  const dispatch = useDispatch(); // @TODO: get dispatch function from store
+  const dispatch = useDispatch();
 
   const onLogin = ({ email, password }) => {
-    // @TODO: dispatch async action to login
     dispatch(asyncSetAuthUser({ email, password }));
   };
 

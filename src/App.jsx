@@ -14,17 +14,15 @@ function App() {
   const {
     authUser = null,
     isPreload = false,
-  } = useSelector((states) => states); // @TODO: get authUser and isPreload state from store
+  } = useSelector((states) => states);
 
-  const dispatch = useDispatch(); // @TODO: get dispatch function from store
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    // @TODO: dispatch async action to preload app
     dispatch(asyncPreloadProcess());
   }, [dispatch]);
 
   const onSignOut = () => {
-    // @TODO: dispatch async action to sign out
     dispatch(asyncUnsetAuthUser());
   };
 

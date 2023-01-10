@@ -14,10 +14,9 @@ function ThreadDetail({
     commentState,
   } = useSelector((states) => states);
 
-  const dispatch = useDispatch(); // @TODO: get dispatch function from store
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    // @TODO: dispatch async action to comments data
     dispatch(asyncGetComments(id));
   }, [dispatch, id]);
 

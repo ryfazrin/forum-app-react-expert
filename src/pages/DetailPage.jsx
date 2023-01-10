@@ -11,18 +11,17 @@ function DetailPage() {
   const {
     threadDetail = null,
     authUser,
-  } = useSelector((states) => states); // @TODO: get threadDetail and authUser state from store
+  } = useSelector((states) => states);
 
-  const dispatch = useDispatch(); // @TODO: get dispatch function from store
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    // @TODO: dispatch async action to get thread detail by id
     dispatch(asyncReceiveThreadDetail(id));
   }, [dispatch, id]);
 
   const onAddComment = (content) => {
     const threadId = id;
-    // @TODO: dispatch async action to add thread
+
     dispatch(asyncAddComment({ threadId, content }));
   };
 
