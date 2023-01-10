@@ -25,7 +25,7 @@ function LoginPage() {
           ,
           {' '}
           <br />
-          Through Open Space.
+          with Your Write.
         </h2>
 
         <LoginInput login={onLogin} />
