@@ -1,12 +1,37 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { postedAt } from '../../utils';
 import CommentsList from '../comment/CommentsList';
 import { CommentItemShape } from '../comment/CommentItem';
+import { asyncAddComment, asyncGetComments } from '../../states/comments/action';
+import CommentInput from '../comment/CommentInput';
+import { asyncReceiveThreadDetail } from '../../states/threadDetail/action';
 
 function ThreadDetail({
-  id, title, body, category, createdAt, owner, comments, authUser,
+  id, title, body, category, createdAt, owner, comments, authUser, onAddComment,
 }) {
+  const {
+    commentState,
+    // authUser,
+  } = useSelector((states) => states);
+
+  // const navigate = useNavigate('');
+  // const [oldComments, setOldComments] = useState(comments);
+
+  const dispatch = useDispatch(); // @TODO: get dispatch function from store
+
+  useEffect(() => {
+    // @TODO: dispatch async action to populate threads and users data
+    dispatch(asyncGetComments(id));
+  }, [dispatch, id]);
+
+  // const commentList = comments.map((comment) => ({
+  //   ...comment,
+  //   commentState,
+  // }));
+
   return (
     <section className="talk-detail">
       <header>
@@ -31,8 +56,11 @@ function ThreadDetail({
       </article>
       <footer>
         <div className="talk-detail__like">
+          <CommentInput addComment={onAddComment} onAddComment={onAddComment} />
           <p>Comments:</p>
-          <CommentsList comments={comments} />
+          <CommentsList comments={commentState} />
+          {/* {console.log('commentList: ', )} */}
+          {/* {console.log('commentState: ', commentState)} */}
         </div>
         {/* <div className="talk-detail__like">
           <button type="button" aria-label="like" onClick={() => likeTalk(id)}>
@@ -64,6 +92,7 @@ ThreadDetail.propTypes = {
   owner: PropTypes.shape(ownerShape).isRequired,
   comments: PropTypes.arrayOf(PropTypes.shape(CommentItemShape)).isRequired,
   authUser: PropTypes.string.isRequired,
+  onAddComment: PropTypes.func.isRequired,
 };
 
 export default ThreadDetail;

@@ -12,7 +12,7 @@ function CommentItem({
         {' '}
         {id}
       </p>
-      <img src={owner.avatar} alt="" />
+      <img src={owner.avatar} alt={owner.name} />
       <p>{owner.name}</p>
       <p>{postedAt(createdAt)}</p>
       <p>{content}</p>
