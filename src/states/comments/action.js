@@ -1,9 +1,20 @@
 import { hideLoading, showLoading } from 'react-redux-loading-bar';
 import api from '../../utils/api';
+import { receiveThreadDetailActionCreator } from '../threadDetail/action';
 
 const ActionType = {
+  RECEIVE_COMMENTS: 'RECEIVE_COMMENTS',
   ADD_COMMENT: 'ADD_COMMENT',
 };
+
+function receiveCommentsActionCreator(comments) {
+  return {
+    type: ActionType.RECEIVE_COMMENTS,
+    payload: {
+      comments,
+    },
+  };
+}
 
 function addCommentActionCreator(comment) {
   return {
@@ -11,6 +22,23 @@ function addCommentActionCreator(comment) {
     payload: {
       comment,
     },
+  };
+}
+
+function asyncGetComments(threadId) {
+  return async (dispatch) => {
+    dispatch(showLoading());
+
+    try {
+      const thread = await api.getThreadDetail(threadId);
+      const { comments } = thread;
+
+      dispatch(receiveCommentsActionCreator(comments));
+    } catch (error) {
+      alert(error.message);
+    }
+
+    dispatch(hideLoading());
   };
 }
 
@@ -45,6 +73,8 @@ function asyncAddComment({ threadId, content }) {
 
 export {
   ActionType,
+  receiveCommentsActionCreator,
   addCommentActionCreator,
+  asyncGetComments,
   asyncAddComment,
 };
