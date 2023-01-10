@@ -202,6 +202,18 @@ body {
   margin-bottom: 16px;
 }
 
+.thread-input input, .thread-input select {
+  font-family: 'Open Sans', sans-serif;
+  background-color: var(--background-color);
+  border-color: var(--gray-light-color);
+  width: 100%;
+  font-size: 15px;
+  padding: 8px;
+  border: 1px solid var(--gray-light-color);
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+
 .thread-input textarea, .thread-reply-input textarea {
   font-family: 'Open Sans', sans-serif;
   background-color: var(--background-color);

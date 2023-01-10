@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import ThreadInput from '../components/thread/ThreadInput';
 import ThreadsList from '../components/thread/ThreadsList';
 import { asyncPopulateUsersAndThreads } from '../states/shared/action';
 import { asyncAddThread } from '../states/threads/action';
@@ -31,7 +32,7 @@ function HomePage() {
 
   return (
     <section className="home-page">
-      {/* <ThreadInput addthread={onAddThread} /> */}
+      <ThreadInput addThread={onAddThread} />
       <ThreadsList threads={threadList} />
     </section>
   );
