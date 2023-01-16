@@ -1,5 +1,15 @@
 import commentsReducer from './reducer';
 
+/**
+ * test scenario for commentsReducer
+ *
+ * - commentsReducer function
+ *  - should return the initial state when given by unknown action
+ *  - should return the comments when given by RECEIVE_COMMENTS action
+ *  - should return the comments with the new comment when given by ADD_COMMENT action
+ *
+ */
+
 describe('commentsReducer function', () => {
   it('should return the initial state when given by unknown action', () => {
     // arrange
