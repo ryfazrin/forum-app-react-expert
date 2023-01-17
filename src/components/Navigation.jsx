@@ -12,7 +12,7 @@ function Navigation({ authUser, signOut }) {
       <nav>
         <Link to="/">Home</Link>
       </nav>
-      <button type="button" onClick={signOut}>
+      <button type="button" id="sign-out" onClick={signOut}>
         <p>{name}</p>
         <span><FiLogOut /></span>
       </button>
