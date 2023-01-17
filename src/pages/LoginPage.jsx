@@ -25,7 +25,7 @@ function LoginPage() {
           ,
           {' '}
           <br />
-          with Your Write.
+          with Your Write App.
         </h2>
 
         <LoginInput login={onLogin} />
