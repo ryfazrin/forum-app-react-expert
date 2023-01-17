@@ -1,5 +1,12 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import CreatableSelect from 'react-select/creatable';
+
+const options = [
+  { value: 'chocolate', label: 'Chocolate' },
+  { value: 'strawberry', label: 'Strawberry' },
+  { value: 'vanilla', label: 'Vanilla' },
+];
 
 function ThreadInput({ addThread }) {
   const [title, setTitle] = useState('');
@@ -27,10 +34,6 @@ function ThreadInput({ addThread }) {
     }
   }
 
-  function handleCategoryChange({ target }) {
-    setCategory(target.value);
-  }
-
   return (
     <div className="thread-input">
       <input type="text" placeholder="Judul" value={title} onChange={handleTitleChange} />
@@ -39,13 +42,12 @@ function ThreadInput({ addThread }) {
         <strong>{body.length}</strong>
         /320
       </p>
-      <select value={category} onChange={handleCategoryChange}>
-        <option>- Pilih kategori -</option>
-        <option value="sport">Sport</option>
-        <option value="news">News</option>
-        <option value="tech">Tech</option>
-        <option value="health">Health</option>
-      </select>
+      <CreatableSelect
+        options={options}
+        onChange={(newValue) => {
+          setCategory(newValue.value);
+        }}
+      />
       <button type="submit" onClick={addthread}>thread</button>
     </div>
   );
