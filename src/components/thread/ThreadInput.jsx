@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 import CreatableSelect from 'react-select/creatable';
 
 const options = [
-  { value: 'chocolate', label: 'Chocolate' },
-  { value: 'strawberry', label: 'Strawberry' },
-  { value: 'vanilla', label: 'Vanilla' },
+  { value: 'sport', label: 'Sport' },
+  { value: 'news', label: 'News' },
+  { value: 'tech', label: 'Tech' },
+  { value: 'health', label: 'Health' },
 ];
 
 function ThreadInput({ addThread }) {
