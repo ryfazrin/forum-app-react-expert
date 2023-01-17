@@ -17,7 +17,8 @@
     },
     "plugins": [
         "react",
-        "react-hooks"
+        "react-hooks",
+        "cypress"
     ],
     "rules": {
         "linebreak-style": "off",
